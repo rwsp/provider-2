@@ -2,9 +2,14 @@
   "name": "@rwsp/provider-2",
   "version": "0.1.1",
   "private": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "dependencies": {
+    "@emotion/babel-plugin": "^11.10.5",
+    "@emotion/babel-preset-css-prop": "^11.10.0",
+    "@emotion/react": "^11.10.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -47,5 +52,21 @@
     "babel-runtime": "^6.26.0",
     "rollup": "^2.79.1",
     "rollup-plugin-typescript2": "^0.34.1"
+  },
+  "babel": {
+    "presets": [
+      "react-app",
+      "@emotion/babel-preset-css-prop"
+    ],
+    "plugins": [
+      "macros",
+      [
+        "xwind/babel",
+        {
+          "config": "tailwind.config.js"
+        }
+      ],
+      "@emotion"
+    ]
   }
 }
